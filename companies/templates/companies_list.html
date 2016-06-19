@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+  {% block title %}
+    Companies List
+  {% endblock %}
+
+  {% block content %}
+    <h1>Companies</h1>
+    {% if companies %}
+      {% for company in companies %}
+        {{ company.name }}, {{ company.address }}, {{ company.phone }}, {{ company.domain }}
+      {% endfor %}
+    {% else %}
+      There are no companies yet, please add one.
+    {% endif %}
+  {% endblock %}
