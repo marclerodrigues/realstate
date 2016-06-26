@@ -20,7 +20,7 @@ class Property(models.Model) :
         return self.title
 
     def get_absolute_url(self):
-        return reverse("properties:detail", kwargs={slug: self.slug})
+        return reverse("properties:detail", kwargs={"slug": self.slug})
 
     class Meta:
         ordering = ["-timestamp"]

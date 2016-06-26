@@ -1,5 +1,8 @@
-from django.shortcuts import render
+from django.contrib import messages
+from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponse, HttpResponseRedirect, Http404
 from .models import Property
+from .forms import PropertyForm
 # Create your views here.
 def properties_list(request):
     properties = Property.objects.all()
@@ -9,3 +12,17 @@ def properties_list(request):
     }
 
     return render(request, "properties_list.html", context)
+
+def property_create(request):
+    form = PropertyForm(request.POST or None)
+    if form.is_valid():
+        property = form.save(commit=False)
+        property.save()
+        messages.success(request, "Property successfully created.")
+        return HttpResponseRedirect(property.get_absolute_url())
+
+    context = {
+        "form" : form
+    }
+
+    return render(request, "property_form.html", context)

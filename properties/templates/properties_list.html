@@ -15,6 +15,6 @@
         </p>
       {% endfor %}
     {% else %}
-      There are no properties yet, please add one. By clicking <a href="">here</a>.
+      There are no properties yet, please add one. By clicking <a href="{% url 'properties:create' %}">here</a>.
     {% endif %}
   {% endblock %}
