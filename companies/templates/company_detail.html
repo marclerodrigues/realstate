@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+  {% block title %}
+    {{title}} - {{object.name}}
+  {% endblock %}
+
+  {% block content %}
+    <h1>{{object.name}}</h1>
+    <p>Address: {{object.address}}</p>
+    <p>Phone: {{object.phone}}</p>
+    <p>Domain: {{object.domain}}</p>
+    <p><a href="{% url 'companies:list' %}">Back to Companies</a></p>
+  {% endblock %}
