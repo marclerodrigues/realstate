@@ -6,6 +6,7 @@ from .views import (
     company_create,
     company_detail,
     company_update,
+    company_delete,
 )
 
 urlpatterns = [
@@ -13,4 +14,5 @@ urlpatterns = [
     url(r'^create/$', company_create, name="create"),
     url(r'^(?P<slug>[\w-]+)/$', company_detail, name="detail"),
     url(r'^(?P<slug>[\w-]+)/edit/$', company_update, name="update"),
+    url(r'^(?P<slug>[\w-]+)/delete/$', company_delete, name="delete"),
 ]

@@ -10,4 +10,5 @@
     <p>Domain: {{company.domain}}</p>
     <p><a href="{% url 'companies:list' %}">Back to Companies</a></p>
     <p><a href="{% url 'companies:update' company.slug %}">Edit Company</a></p>
+    <p><a href="{% url 'companies:delete' company.slug %}">Delete Company</a></p>
   {% endblock %}

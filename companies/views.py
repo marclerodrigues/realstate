@@ -50,3 +50,9 @@ def company_update(request, slug=None):
     }
 
     return render(request, "company_form.html", context)
+
+def company_delete(request, slug=None):
+    company = get_object_or_404(Company, slug=slug)
+    company.delete()
+    messages.success(request, "Successfully deleted.")
+    return redirect("companies:list")
