@@ -5,6 +5,7 @@ from .views import (
     property_create,
     property_detail,
     property_update,
+    property_delete,
 )
 
 urlpatterns = [
@@ -12,4 +13,5 @@ urlpatterns = [
     url(r'^create/$', property_create, name="create"),
     url(r'^(?P<slug>[\w-]+)/$', property_detail, name="detail"),
     url(r'^(?P<slug>[\w-]+)/edit/$', property_update, name="update"),
+    url(r'^(?P<slug>[\w-]+)/delete/$', property_delete, name="delete"),
 ]

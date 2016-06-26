@@ -50,3 +50,9 @@ def property_update(request, slug=None):
     }
 
     return render(request, "property_form.html", context)
+
+def property_delete(request, slug=None):
+    property = get_object_or_404(Property, slug=slug)
+    property.delete()
+    messages.success(request, "Successfully deleted.")
+    return redirect("properties:list")
