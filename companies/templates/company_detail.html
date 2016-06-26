@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+  {% block title %}
+    {{title}} - {{company.name}}
+  {% endblock %}
+
+  {% block content %}
+    <h1>{{company.name}}</h1>
+    <p>Address: {{company.address}}</p>
+    <p>Phone: {{company.phone}}</p>
+    <p>Domain: {{company.domain}}</p>
+    <p><a href="{% url 'companies:list' %}">Back to Companies</a></p>
+    <p><a href="{% url 'companies:update' company.slug %}">Edit Company</a></p>
+    <p><a href="{% url 'companies:delete' company.slug %}">Delete Company</a></p>
+  {% endblock %}

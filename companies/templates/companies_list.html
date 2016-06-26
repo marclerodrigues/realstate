@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+  {% block title %}
+    Companies List
+  {% endblock %}
+
+  {% block content %}
+    <h1>Companies</h1>
+    {% if companies %}
+      {% for company in companies %}
+        <p>
+          {{ company.name }}, {{ company.address }}, {{ company.phone }}, {{ company.domain }} <br/>
+          <a href="{% url 'companies:detail' company.slug %}">See</a>
+          <a href="{% url 'companies:update' company.slug %}">Edit</a>
+          <a href="{% url 'companies:delete' company.slug %}">Delete</a>
+        </p>
+      {% endfor %}
+    {% else %}
+      There are no companies yet, please add one. By clicking <a href="{% url 'companies:create' %}">here</a>.
+    {% endif %}
+  {% endblock %}
