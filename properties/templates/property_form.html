@@ -1,12 +1,13 @@
 {% extends "base.html" %}
   {% block title %}
-    Create Property
+    {{title}} Property
   {% endblock %}
 
   {% block content %}
-    <h1>New Property</h1>
+    <h1>{{title}} Property</h1>
     <form method="post" action=""> {% csrf_token %}
       {{form.as_p}}
       <input type="submit" value="Create Property" />
     </form>
+    <a href="{% url 'properties:list' %}">Back</a>
   {% endblock %}

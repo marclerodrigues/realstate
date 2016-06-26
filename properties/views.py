@@ -22,6 +22,7 @@ def property_create(request):
         return HttpResponseRedirect(property.get_absolute_url())
 
     context = {
+        "title" : "Create",
         "form" : form
     }
 
@@ -45,6 +46,7 @@ def property_update(request, slug=None):
         return HttpResponseRedirect(property.get_absolute_url())
 
     context = {
+        "title" : "Edit",
         "property" : property,
         "form" : form,
     }

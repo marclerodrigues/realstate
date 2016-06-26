@@ -5,6 +5,7 @@
 
   {% block content %}
     <h1>Properties</h1>
+    <a href="{% url 'properties:create' %}">Create new</a>
     {% if properties %}
       {% for property in properties %}
         <p>
