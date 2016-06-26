@@ -10,6 +10,7 @@
         <p>
           {{ company.name }}, {{ company.address }}, {{ company.phone }}, {{ company.domain }} <br/>
           <a href="{% url 'companies:detail' company.slug %}">See</a>
+          <a href="{% url 'companies:update' company.slug %}">Edit</a>
         </p>
       {% endfor %}
     {% else %}

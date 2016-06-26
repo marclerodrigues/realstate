@@ -27,9 +27,26 @@ def company_create(request):
     return render(request, "company_form.html", context)
 
 def company_detail(request, slug=None):
-    instance = get_object_or_404(Company, slug=slug)
+    company = get_object_or_404(Company, slug=slug)
     context = {
         "title" : "Company",
-        "object" : instance
+        "company" : company
     }
     return render(request, "company_detail.html", context)
+
+def company_update(request, slug=None):
+    company = get_object_or_404(Company, slug=slug)
+    form = CompanyForm(request.POST or None, instance=company)
+    if form.is_valid():
+        company = form.save(commit=False)
+        company.save()
+        messages.success(request, "Successfully saved.")
+        return HttpResponseRedirect(company.get_absolute_url())
+
+    context = {
+        "title" : "Company",
+        "company" : company,
+        "form" : form
+    }
+
+    return render(request, "company_form.html", context)
