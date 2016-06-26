@@ -22,6 +22,7 @@ def company_create(request):
         return HttpResponseRedirect(instance.get_absolute_url())
 
     context = {
+        "title": "New",
         "form": form,
     }
     return render(request, "company_form.html", context)
@@ -29,7 +30,6 @@ def company_create(request):
 def company_detail(request, slug=None):
     company = get_object_or_404(Company, slug=slug)
     context = {
-        "title" : "Company",
         "company" : company
     }
     return render(request, "company_detail.html", context)
@@ -44,7 +44,7 @@ def company_update(request, slug=None):
         return HttpResponseRedirect(company.get_absolute_url())
 
     context = {
-        "title" : "Company",
+        "title" : "Edit",
         "company" : company,
         "form" : form
     }

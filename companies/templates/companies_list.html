@@ -5,6 +5,7 @@
 
   {% block content %}
     <h1>Companies</h1>
+    <a href="{% url 'companies:create' %}">Create new</a>
     {% if companies %}
       {% for company in companies %}
         <p>
