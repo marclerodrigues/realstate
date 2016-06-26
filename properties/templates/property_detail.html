@@ -10,6 +10,6 @@
     <p>Value: {{property.value}}</p>
     <p>Status: {{property.status}}</p>
     <p><a href="{% url 'properties:list' %}">Back to Properties</a></p>
-    <p><a href="{% url 'companies:update' property.slug %}">Edit Property</a></p>
+    <p><a href="{% url 'properties:update' property.slug %}">Edit Property</a></p>
     <p><a href="{% url 'companies:delete' property.slug %}">Delete Property</a></p>
   {% endblock %}

@@ -10,7 +10,7 @@
         <p>
           {{ property.title }}, {{ property.address }}, {{ property.type }}, {{ property.vale }}, {{ property.status }} <br/>
           <a href="{% url 'properties:detail' property.slug %}">See</a>
-          <a href="{% url 'companies:update' property.slug %}">Edit</a>
+          <a href="{% url 'properties:update' property.slug %}">Edit</a>
           <a href="{% url 'companies:delete' property.slug %}">Delete</a>
         </p>
       {% endfor %}

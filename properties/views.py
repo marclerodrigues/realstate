@@ -34,3 +34,19 @@ def property_detail(request, slug=None):
     }
 
     return render(request, "property_detail.html", context)
+
+def property_update(request, slug=None):
+    property = get_object_or_404(Property, slug=slug)
+    form = PropertyForm(request.POST or None, instance=property)
+    if form.is_valid():
+        property = form.save(commit=False)
+        property.save()
+        messages.success(request, "Property successfully saved.")
+        return HttpResponseRedirect(property.get_absolute_url())
+
+    context = {
+        "property" : property,
+        "form" : form,
+    }
+
+    return render(request, "property_form.html", context)
