@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+  {% block title %}
+    Property - {{property.name}}
+  {% endblock %}
+
+  {% block content %}
+    <h1>{{property.name}}</h1>
+    <p>Address: {{property.address}}</p>
+    <p>Type: {{property.type}}</p>
+    <p>Value: {{property.value}}</p>
+    <p>Status: {{property.status}}</p>
+    <p><a href="{% url 'properties:list' %}">Back to Properties</a></p>
+    <p><a href="{% url 'properties:update' property.slug %}">Edit Property</a></p>
+    <p><a href="{% url 'properties:delete' property.slug %}">Delete Property</a></p>
+  {% endblock %}
