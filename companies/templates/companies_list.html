@@ -7,9 +7,12 @@
     <h1>Companies</h1>
     {% if companies %}
       {% for company in companies %}
-        {{ company.name }}, {{ company.address }}, {{ company.phone }}, {{ company.domain }}
+        <p>
+          {{ company.name }}, {{ company.address }}, {{ company.phone }}, {{ company.domain }} <br/>
+          <a href="{% url 'companies:detail' company.slug %}">See</a>
+        </p>
       {% endfor %}
     {% else %}
-      There are no companies yet, please add one.
+      There are no companies yet, please add one. By clicking <a href="{% url 'companies:create' %}">here</a>.
     {% endif %}
   {% endblock %}
