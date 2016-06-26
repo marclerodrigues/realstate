@@ -26,3 +26,11 @@ def property_create(request):
     }
 
     return render(request, "property_form.html", context)
+
+def property_detail(request, slug=None):
+    property = get_object_or_404(Property, slug=slug)
+    context = {
+        "property" : property
+    }
+
+    return render(request, "property_detail.html", context)

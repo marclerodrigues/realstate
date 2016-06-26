@@ -8,10 +8,10 @@
     {% if properties %}
       {% for property in properties %}
         <p>
-          {{ property.name }}, {{ property.address }}, {{ property.phone }}, {{ property.domain }} <br/>
+          {{ property.title }}, {{ property.address }}, {{ property.type }}, {{ property.vale }}, {{ property.status }} <br/>
           <a href="{% url 'properties:detail' property.slug %}">See</a>
-          <a href="{% url 'properties:update' property.slug %}">Edit</a>
-          <a href="{% url 'properties:delete' property.slug %}">Delete</a>
+          <a href="{% url 'companies:update' property.slug %}">Edit</a>
+          <a href="{% url 'companies:delete' property.slug %}">Delete</a>
         </p>
       {% endfor %}
     {% else %}
